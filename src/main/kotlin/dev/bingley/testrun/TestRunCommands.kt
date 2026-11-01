@@ -252,6 +252,31 @@ object TestRunCommands {
                                     )
                                 )
                         )
+
+                        .then(
+                            Commands.literal("setup")
+                                .then(
+                                    Commands.argument(
+                                        "name",
+                                        StringArgumentType.word()
+                                    )
+                                    .suggests { context, builder ->
+                                        // Get the executor
+                                        val player = context.source.player
+
+                                        if (player != null) {
+                                            val names = ScenarioManager.list(player)
+                                            
+                                            for (name in names) {
+                                                // Suggest names matching what was typed
+                                                if (name.startsWith(builder.remaining, ignoreCase = true)) {
+                                                    builder.suggest(name)
+                                                }
+                                            }
+                                        }
+                                    
+                                    builder.buildFuture()
+                        )
             )
         }
     }

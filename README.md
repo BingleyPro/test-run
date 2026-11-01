@@ -21,6 +21,7 @@ If you want to access it as another player, you can try using `/execute as [play
 - Run a reset function when loading a scenario with `/testrun setup [scenario_name] [function_name]`
 - Scenarios are persistent between sessions
 - Command autocomplete for scenarios and datapack functions
+- Quick save and load keys
 
 Features coming soon:
 

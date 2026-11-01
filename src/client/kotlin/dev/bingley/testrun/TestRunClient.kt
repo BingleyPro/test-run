@@ -22,9 +22,35 @@ object TestRunClient : ClientModInitializer {
             )
         )
         
+        val quickSaveKey = KeyMappingHelper.registerKeyMapping(
+            KeyMapping(
+                "key.testrun.quicksave",
+                InputConstants.Type.KEYBOARD,
+                InputConstants.KEY_F6,
+                category
+            )
+        )
+        
+        val quickLoadKey = KeyMappingHelper.registerKeyMapping(
+            KeyMapping(
+                "key.testrun.quickload",
+                InputConstants.Type.KEYBOARD,
+                InputConstants.KEY_F7,
+                category
+            )
+        )
+        
         ClientTickEvents.END_CLIENT_TICK.register { client ->
             while (restartKey.consumeClick()) {
                 client.connection?.sendCommand("testrun again")
+            }
+            
+            while (quickSaveKey.consumeClick()) {
+                client.connection?.sendCommand("testrun save quick")
+            }
+            
+            while (quickLoadKey.consumeClick()) {
+                client.connection?.sendCommand("testrun run quick")
             }
         }
     }
