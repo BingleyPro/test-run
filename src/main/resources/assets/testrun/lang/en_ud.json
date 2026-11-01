@@ -1,0 +1,15 @@
+{
+    "key.category.testrun.controls": "unꓤʇsǝ⊥",
+    "key.testrun.again": "oᴉɹɐuǝɔS ʇsɐ˥ ʇɹɐʇsǝꓤ",
+    "message.testrun.pinged": "˙ƃuᴉʞɹoʍ sᴉ unꓤʇsǝ⊥",
+    "message.testrun.saved": "˙ʎllnɟssǝɔɔns pǝʌɐs %s oᴉɹɐuǝɔS",
+    "message.testrun.restored": "˙pǝɹoʇsǝɹ sɐʍ %s oᴉɹɐuǝɔS",
+    "message.testrun.scenario_missing": "˙punoɟ ʇou sɐʍ %s oᴉɹɐuǝɔS",
+    "message.testrun.last_scenario_missing": "˙punoɟ sɐʍ oᴉɹɐuǝɔs ʇsɐl oN",
+    "message.testrun.deleted": "˙pǝʇǝlǝp sɐʍ %s oᴉɹɐuǝɔS",
+    "message.testrun.again": "¡ƃuᴉuunɹǝꓤ",
+    "message.testrun.scenario_or_function_missing": "˙ʇsᴉxǝ ʇou sǝop uoᴉʇɔunɟ ɹo oᴉɹɐuǝɔs ǝɥʇ ɹǝɥʇᴉƎ",
+    "message.testrun.set_reset_function": "˙%2$s oʇ %1$s ɹoɟ uoᴉʇɔunɟ ʇǝsǝɹ ǝɥʇ ʇǝS",
+    "message.testrun.list_empty": "˙punoɟ soᴉɹɐuǝɔs oN",
+    "message.testrun_list": "$s :soᴉɹɐuǝɔS"
+}
