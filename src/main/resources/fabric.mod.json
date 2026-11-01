@@ -1,0 +1,32 @@
+{
+    "schemaVersion": 1,
+    "id": "testrun",
+    "version": "${version}",
+    "name": "TestRun",
+    "description": "",
+    "authors": ["Bingley"],
+    "contact": {
+        "homepage": "",
+        "sources": ""
+    },
+    "license": "MIT",
+    "icon": "assets/testrun/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "dev.bingley.testrun.TestRun"
+        ],
+        "client": [
+            "dev.bingley.testrun.client.TestRunClient"
+        ]
+    },
+    "mixins": [
+        "testrun.mixins.json",
+        "testrun.client.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.15.0",
+        "minecraft": "~26.3",
+        "java": ">=25"
+    }
+}
