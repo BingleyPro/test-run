@@ -1,0 +1,15 @@
+{
+    "key.category.testrun.controls": "TestRun",
+    "key.testrun.again": "Restart Last Scenario",
+    "message.testrun.pinged": "TestRun is working.",
+    "message.testrun.saved": "Scenario %s saved successfully.",
+    "message.testrun.restored": "Scenario %s was restored.",
+    "message.testrun.scenario_missing": "Scenario %s was not found.",
+    "message.testrun.last_scenario_missing": "No last scenario was found.",
+    "message.testrun.deleted": "Scenario %s was deleted.",
+    "message.testrun.again": "Rerunning!",
+    "message.testrun.scenario_or_function_missing": "Either the scenario or function does not exist.",
+    "message.testrun.set_reset_function": "Set the reset function for %1$s to %2$s.",
+    "message.testrun.list_empty": "No scenarios found.",
+    "message.testrun_list": "Scenarios: $s"
+}

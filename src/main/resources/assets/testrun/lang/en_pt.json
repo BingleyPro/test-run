@@ -1,0 +1,15 @@
+{
+    "key.category.testrun.controls": "TestRun, Arrr!",
+    "key.testrun.again": "Revisit Yer Last Adventure!",
+    "message.testrun.pinged": "Arrr! TestRun be shipshape!",
+    "message.testrun.saved": "Arrr, ye stowed %s.",
+    "message.testrun.restored": "Adventure %s be restored!",
+    "message.testrun.scenario_missing": "No treasture by the name o' %s be found!",
+    "message.testrun.last_scenario_missing": "Ye haven't sailed on any adventure yet!",
+    "message.testrun.deleted": "Thown adventure %s overboard!",
+    "message.testrun.again": "Set sail once more!",
+    "message.testrun.scenario_or_function_missing": "That adventure or function must be lost at sea!",
+    "message.testrun.set_reset_function": "The reset spell for %1$s appeats to be %2$s now!",
+    "message.testrun.list_empty": "Yer logbook be empty!",
+    "message.testrun_list": "Adventures: $s"
+}

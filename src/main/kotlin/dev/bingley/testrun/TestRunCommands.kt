@@ -22,7 +22,7 @@ object TestRunCommands {
                         Commands.literal("ping")
                             .executes { context ->
                                 context.source.sendSuccess(
-                                    { Component.literal("TestRun is working.")},
+                                    { Component.translatable("message.testrun.pinged")},
                                         false
                                 )
                                 1
@@ -46,7 +46,7 @@ object TestRunCommands {
                                     ScenarioManager.save(player, name)
                                     
                                     context.source.sendSuccess(
-                                        { Component.literal("Saved scenario: $name")},
+                                        { Component.translatable("message.testrun.saved", name)},
                                         false
                                     )
                                     1
@@ -87,15 +87,13 @@ object TestRunCommands {
                                     
                                     if (ScenarioManager.restore(player, name)) {
                                         context.source.sendSuccess(
-                                            { Component.literal("Restored the scenario $name.")},
+                                            { Component.translatable("message.testrun.restored", name)},
                                             false
                                         )
                                         1
                                     } else {
                                         context.source.sendFailure(
-                                            Component.literal(
-                                                "The scenario not found."
-                                            )
+                                            Component.translatable("message.testrun.scenario_missing")
                                         )
                                         0
                                     }
@@ -110,13 +108,13 @@ object TestRunCommands {
                                     val names = ScenarioManager.list(player)
                                     
                                     val message = if (names.isEmpty()) {
-                                        "No saved scenarios."
+                                        Component.translatable("message.testrun.list_empty")
                                     } else {
-                                        "Scenarios: ${names.joinToString(", ")}"
+                                        Component.translatable("message.testrun.list", names.joinToString(", "))
                                     }
                                     
                                     context.source.sendSuccess(
-                                        { Component.literal(message)},
+                                        { message },
                                             false
                                     )
                                     1
@@ -155,15 +153,13 @@ object TestRunCommands {
                                     
                                     if (ScenarioManager.delete(player, name)) {
                                         context.source.sendSuccess(
-                                            { Component.literal("Deleted the scenario $name.")},
+                                            { Component.translatable("message.testrun.deleted", name)},
                                             false
                                         )
                                         1
                                     } else {
                                         context.source.sendFailure(
-                                            Component.literal(
-                                                "The scenario not found."
-                                            )
+                                            Component.translatable("message.testrun.scenario_missing", name)
                                         )
                                         0
                                     }
@@ -178,14 +174,13 @@ object TestRunCommands {
                                     
                                     if (ScenarioManager.runAgain(player)) {
                                         context.source.sendSuccess(
-                                            { Component.literal("Scenario restarted.")},
+                                            { Component.translatable("message.testrun.again")},
                                             false
                                         )
                                         1
                                     } else {
                                         context.source.sendFailure(
-                                            Component.literal("No previous scenario is available.")
-                                        )
+                                            Component.translatable("message.testrun.last_scenario_missing"))
                                         0
                                     }
                                 }
@@ -239,17 +234,16 @@ object TestRunCommands {
                                             
                                             if (ScenarioManager.setResetFunction(player, name, resetFunction)) {
                                                 context.source.sendSuccess( {
-                                                    Component.literal(
-                                                        "Set reset function for $name to $resetFunction."
-                                                    )
+                                                    Component.translatable(
+                                                        "message.testrun.set_reset_function", name, resetFunction)
                                                     },
                                                     false
                                                 )
                                                 1
                                             } else {
                                                 context.source.sendFailure(
-                                                    Component.literal(
-                                                        "Scenario or function not found."
+                                                    Component.translatable(
+                                                        "message.testrun.scenario_or_function_missing"
                                                     )
                                                 )
                                                 0

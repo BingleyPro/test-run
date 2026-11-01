@@ -1,0 +1,15 @@
+{
+    "key.category.testrun.controls": "TestRun",
+    "key.testrun.again": "Return Unto Thy Former Trial",
+    "message.testrun.pinged": "Thine TestRun doth be working.",
+    "message.testrun.saved": "The trial %s hath be preserved.",
+    "message.testrun.restored": "Thine %s hath been restored.",
+    "message.testrun.scenario_missing": "Alas! No trial by the name of %s was found.",
+    "message.testrun.last_scenario_missing": "No fomer trial has been recorded.",
+    "message.testrun.deleted": "Farewall, trial %s.",
+    "message.testrun.again": "Doth once again, shall we?",
+    "message.testrun.scenario_or_function_missing": "Alas, neither the trial or function could be found.",
+    "message.testrun.set_reset_function": "Thine reset function of %1$s is now %2$s.",
+    "message.testrun.list_empty": "No trial hath been preserved.",
+    "message.testrun_list": "Thy recorded trials: %s"
+}
