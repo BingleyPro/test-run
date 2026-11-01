@@ -14,21 +14,20 @@ If you want to access it as another player, you can try using `/execute as [play
 
 ## Features
 
-Section coming soon!
-
-- Save and load scenarios
+- Save, load, and delete scenarios
 - List all scenarios
 - Scenarios contain position, rotation, hunger, saturation, gamemode, tags, teams, inventory, and some other nbt data
+- Rerun the last scenario used with `/testrun again`
+- Run a reset function when loading a scenario with `/testrun setup [scenario_name] [function_name]`
 
 Features coming soon:
 
-- Delete scenarios
 - Persistence
 - Command autocomplete for loading scenarios
 
 ## Notes
 
-This is an active WIP, and is a small project. It may not receive future updates once complete, and I am considering making a more advanced creator toolpack that would contain a similar feature to this mod.
+This is an active WIP, and is a small project. It may not receive future updates once complete (but it might!), and I am considering making a more advanced creator toolpack that would contain a similar feature to twhat mod does/will do.
 
 This is also one of my first Minecraft mods. I've worked on multiple maps and datapacks in the past, but never really mods, so here it is.
 

@@ -36,5 +36,7 @@ data class TestScenario(
     val tags: Set<String>,
     val team: String?,
     
-    val extraNbt: CompoundTag
+    val extraNbt: CompoundTag,
+    
+    val resetFunction: String? = null
 )

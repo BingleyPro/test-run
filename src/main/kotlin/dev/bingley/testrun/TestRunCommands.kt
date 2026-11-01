@@ -12,6 +12,9 @@ object TestRunCommands {
             
             dispatcher.register(
                 Commands.literal("testrun")
+                    .requires { source ->
+                        Commands.LEVEL_GAMEMASTERS.check(source.permissions())
+                    }
                 
                     .then(
                         // Check that mod/command is working
@@ -102,6 +105,36 @@ object TestRunCommands {
                         )
                         
                         .then(
+                            Commands.literal("delete")
+                                .then(
+                                Commands.argument(
+                                    "name",
+                                    StringArgumentType.word()
+                                ).executes { context ->
+                                    val player = context.source.playerOrException
+                                    val name = StringArgumentType.getString(
+                                        context, "name"
+                                    )
+                                    
+                                    if (ScenarioManager.delete(player, name)) {
+                                        context.source.sendSuccess(
+                                            { Component.literal("Deleted the scenario $name.")},
+                                            false
+                                        )
+                                        1
+                                    } else {
+                                        context.source.sendFailure(
+                                            Component.literal(
+                                                "The scenario not found."
+                                            )
+                                        )
+                                        0
+                                    }
+                                }
+                            )
+                        )
+                        
+                        .then(
                             Commands.literal("again")
                                 .executes { context ->
                                     val player = context.source.playerOrException
@@ -119,6 +152,49 @@ object TestRunCommands {
                                         0
                                     }
                                 }
+                        )
+                        
+                        .then(
+                            Commands.literal("setup")
+                                .then(
+                                    Commands.argument(
+                                        "name",
+                                        StringArgumentType.word()
+                                    )
+                                    .then(
+                                        Commands.argument(
+                                        "resetFunction",
+                                        StringArgumentType.greedyString()
+                                    )
+                                        .executes { context ->
+                                            val player = context.source.playerOrException
+                                            val name = StringArgumentType.getString(
+                                                context, "name"
+                                            )
+                                            val resetFunction = StringArgumentType.getString(
+                                                context, "resetFunction"
+                                            )
+                                            
+                                            if (ScenarioManager.setResetFunction(player, name, resetFunction)) {
+                                                context.source.sendSuccess( {
+                                                    Component.literal(
+                                                        "Set reset function for $name to $resetFunction."
+                                                    )
+                                                    },
+                                                    false
+                                                )
+                                                1
+                                            } else {
+                                                context.source.sendFailure(
+                                                    Component.literal(
+                                                        "Scenario or function not found."
+                                                    )
+                                                )
+                                                0
+                                            }
+                                        }
+                                    )
+                                )
                         )
             )
         }

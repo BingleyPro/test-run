@@ -4,6 +4,7 @@ import net.minecraft.server.level.ServerPlayer
 import net.minecraft.world.entity.EquipmentSlot
 import net.minecraft.world.item.ItemStack
 import net.minecraft.nbt.CompoundTag
+import net.minecraft.resources.Identifier
 import java.util.UUID
 
 object ScenarioManager {
@@ -64,7 +65,9 @@ object ScenarioManager {
                 
             tags = player.entityTags().toSet(),
             team = player.team?.name,
-            extraNbt = extraNbt      
+            extraNbt = extraNbt,
+            
+            resetFunction = get(player, name)?.resetFunction 
         )
         
         // Save scenario
@@ -84,7 +87,13 @@ object ScenarioManager {
     }
     
     fun delete(player: ServerPlayer, name: String): Boolean {
-        return scenarios[player.uuid]?.remove(name) != null
+        val removed = scenarios[player.uuid]?.remove(name) != null
+        
+        if (removed && lastScenario[player.uuid] == name) {
+            lastScenario.remove(player.uuid)
+        }
+        
+        return removed
     }
     
     fun restore(player: ServerPlayer, name: String): Boolean {
@@ -94,6 +103,15 @@ object ScenarioManager {
         
         val level = server.getLevel(scenario.dimension)
             ?: return false
+            
+        val resetFunction = scenario.resetFunction?.let {
+            functionName ->
+            val id = Identifier.tryParse(functionName) ?: return false
+            
+            server.functions.get(id).orElse(null)
+                ?: return false
+        
+        }
         
         val teleport = player.teleportTo(
             level,
@@ -181,13 +199,36 @@ object ScenarioManager {
             nbt.getBooleanOr("NoGravity", false)
         )
         
-        lastScenario[player.uuid] = name
+        resetFunction?.let { function ->
+            server.functions.execute(
+                function,
+                player.createCommandSourceStack()
+            )
+        }
         
+        lastScenario[player.uuid] = name
         return true
     }
     
     fun runAgain(player: ServerPlayer): Boolean {
         val name = lastScenario[player.uuid] ?: return false
         return restore(player, name)
+    }
+    
+    fun setResetFunction(player: ServerPlayer, name: String, functionName: String): Boolean {
+        val scenario = get(player, name) ?: return false
+        
+        val id = Identifier.tryParse(functionName) ?: return false
+        
+        val server = player.level().server
+        if (server.functions.get(id).isEmpty()) {
+            return false
+        }
+        
+        val updated = scenario.copy(resetFunction = id.toString())
+        
+        scenarios[player.uuid]?.set(name, updated)
+        
+        return true
     }
 }
