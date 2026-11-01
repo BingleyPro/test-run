@@ -17,13 +17,15 @@ If you want to access it as another player, you can try using `/execute as [play
 - Save, load, and delete scenarios
 - List all scenarios
 - Scenarios contain position, rotation, hunger, saturation, gamemode, tags, teams, inventory, and some other nbt data
-- Rerun the last scenario used with `/testrun again`
+- Rerun the last scenario used with `/testrun again`, or use a hotkey (default: K)
 - Run a reset function when loading a scenario with `/testrun setup [scenario_name] [function_name]`
+- Scenarios are persistent between sessions
+- Command autocomplete for scenarios and datapack functions
 
 Features coming soon:
 
-- Persistence (i.e. leaving and rejoining keeps scenarios. Currently, they are saved in memory only.)
-- Command autocomplete for loading scenarios
+- Ability for other players to load another player's scenario
+- Other attributes for scenarios to save, like time, entities etc.
 
 ## Notes
 

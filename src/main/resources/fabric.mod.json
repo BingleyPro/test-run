@@ -15,6 +15,12 @@
     "entrypoints": {
         "main": [
             "dev.bingley.testrun.TestRun"
+        ],
+        "client": [
+            {
+                "adapter": "kotlin",
+                "value": "dev.bingley.testrun.TestRunClient"
+            } 
         ]
     },
     "depends": {
