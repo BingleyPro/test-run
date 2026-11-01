@@ -22,7 +22,7 @@ If you want to access it as another player, you can try using `/execute as [play
 
 Features coming soon:
 
-- Persistence
+- Persistence (i.e. leaving and rejoining keeps scenarios. Currently, they are saved in memory only.)
 - Command autocomplete for loading scenarios
 
 ## Notes
@@ -31,4 +31,4 @@ This is an active WIP, and is a small project. It may not receive future updates
 
 This is also one of my first Minecraft mods. I've worked on multiple maps and datapacks in the past, but never really mods, so here it is.
 
-Built for Hack Club's Terra!
+Built as part of Hack Club's Terra!

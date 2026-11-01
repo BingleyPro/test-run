@@ -70,30 +70,30 @@ object ScenarioManager {
             resetFunction = get(player, name)?.resetFunction 
         )
         
-        // Save scenario
-        scenarios.getOrPut(player.uuid) {
-            mutableMapOf()
-        }[name] = scenario
-        
-        lastScenario[player.uuid] = name
+        TestRunSavedData.forPlayer(player).save(
+            player.uuid,
+            scenario
+        )
     }
     
     fun get(player: ServerPlayer, name: String): TestScenario? {
-        return scenarios[player.uuid]?.get(name)
+        return TestRunSavedData.forPlayer(player).get(
+            player.uuid,
+            name
+        )
     }
     
     fun list(player: ServerPlayer): List<String> {
-        return scenarios[player.uuid]?.keys?.sorted() ?: emptyList()
+        return TestRunSavedData.forPlayer(player).names(
+            player.uuid
+        )
     }
     
     fun delete(player: ServerPlayer, name: String): Boolean {
-        val removed = scenarios[player.uuid]?.remove(name) != null
-        
-        if (removed && lastScenario[player.uuid] == name) {
-            lastScenario.remove(player.uuid)
-        }
-        
-        return removed
+        return TestRunSavedData.forPlayer(player).delete(
+            player.uuid,
+            name
+        )
     }
     
     fun restore(player: ServerPlayer, name: String): Boolean {
@@ -129,7 +129,7 @@ object ScenarioManager {
         player.setGameMode(scenario.gamemode)
         
         player.health = scenario.health
-        player.foodData.setFoodLevel(scenario.hunger)
+        player.foodData.foodLevel = scenario.hunger
         player.foodData.setSaturation(scenario.saturation)
         
         player.totalExperience = scenario.totalExperience
@@ -158,8 +158,8 @@ object ScenarioManager {
             EquipmentSlot.OFFHAND,
             scenario.offhand.copy()
         )
-        
-        inventory.setSelectedSlot(scenario.selectedSlot)
+
+        inventory.selectedSlot = scenario.selectedSlot
         
         inventory.setChanged()
         player.inventoryMenu.broadcastChanges()
@@ -194,10 +194,8 @@ object ScenarioManager {
         player.remainingFireTicks = nbt.getIntOr("Fire", 0)
         player.ticksFrozen = nbt.getIntOr("FrozenTicks", 0)
         player.fallDistance = nbt.getDoubleOr("FallDistance", 0.0)
-        
-        player.setNoGravity(
-            nbt.getBooleanOr("NoGravity", false)
-        )
+
+        player.isNoGravity = nbt.getBooleanOr("NoGravity", false)
         
         resetFunction?.let { function ->
             server.functions.execute(
@@ -206,12 +204,17 @@ object ScenarioManager {
             )
         }
         
-        lastScenario[player.uuid] = name
+        TestRunSavedData.forPlayer(player).remember(
+            player.uuid,
+            name
+        )
+        
         return true
     }
     
     fun runAgain(player: ServerPlayer): Boolean {
-        val name = lastScenario[player.uuid] ?: return false
+        val name = TestRunSavedData.forPlayer(player).lastUsed(player.uuid) ?: return false
+        
         return restore(player, name)
     }
     
@@ -221,13 +224,16 @@ object ScenarioManager {
         val id = Identifier.tryParse(functionName) ?: return false
         
         val server = player.level().server
-        if (server.functions.get(id).isEmpty()) {
+        if (server.functions.get(id).isEmpty) {
             return false
         }
         
         val updated = scenario.copy(resetFunction = id.toString())
         
-        scenarios[player.uuid]?.set(name, updated)
+        TestRunSavedData.forPlayer(player).update(
+            player.uuid,
+            updated
+        )
         
         return true
     }
