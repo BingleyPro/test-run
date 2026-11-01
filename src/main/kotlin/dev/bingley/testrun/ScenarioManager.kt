@@ -5,19 +5,14 @@ import net.minecraft.world.entity.EquipmentSlot
 import net.minecraft.world.item.ItemStack
 import net.minecraft.nbt.CompoundTag
 import net.minecraft.resources.Identifier
-import java.util.UUID
 
 object ScenarioManager {
-    private val scenarios = mutableMapOf<UUID, MutableMap<String, TestScenario>>()
-    
     private val armourSlots = listOf(
         EquipmentSlot.FEET,
         EquipmentSlot.LEGS,
         EquipmentSlot.CHEST,
         EquipmentSlot.HEAD
     )
-    
-    private val lastScenario = mutableMapOf<UUID, String>()
     
     fun save(player: ServerPlayer, name: String) {
         
@@ -179,12 +174,15 @@ object ScenarioManager {
         
         scoreboard.removePlayerFromTeam(scoreboardName)
         
-        // Create team if it doesn't exist, and assign player
-        scenario.team?.let {
-            teamName ->
-            val team = scoreboard.getPlayerTeam(teamName)
-                ?: scoreboard.addPlayerTeam(teamName)
-        
+        // Create team if it doesn't exist, and assign player  
+        val teamName = scenario.team
+        if (teamName != null) {
+            var team = scoreboard.getPlayerTeam(teamName)
+            
+            if (team == null) {
+                team = scoreboard.addPlayerTeam(teamName)
+            }
+            
             scoreboard.addPlayerToTeam(scoreboardName, team)
         }
         
@@ -197,9 +195,9 @@ object ScenarioManager {
 
         player.isNoGravity = nbt.getBooleanOr("NoGravity", false)
         
-        resetFunction?.let { function ->
+        if (resetFunction != null) {
             server.functions.execute(
-                function,
+                resetFunction,
                 player.createCommandSourceStack()
             )
         }
