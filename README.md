@@ -18,11 +18,13 @@ Section coming soon!
 
 - Save and load scenarios
 - List all scenarios
+- Scenarios contain position, rotation, hunger, saturation, gamemode, tags, teams, inventory, and some other nbt data
 
 Features coming soon:
 
 - Delete scenarios
-- Scenarios contain more info (hunger, saturation, gamemode, tags, teams, inventory, other nbt data etc.)
+- Persistence
+- Command autocomplete for loading scenarios
 
 ## Notes
 

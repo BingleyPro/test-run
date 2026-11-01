@@ -100,6 +100,26 @@ object TestRunCommands {
                                     1
                                 }
                         )
+                        
+                        .then(
+                            Commands.literal("again")
+                                .executes { context ->
+                                    val player = context.source.playerOrException
+                                    
+                                    if (ScenarioManager.runAgain(player)) {
+                                        context.source.sendSuccess(
+                                            { Component.literal("Scenario restarted.")},
+                                            false
+                                        )
+                                        1
+                                    } else {
+                                        context.source.sendFailure(
+                                            Component.literal("No previous scenario is available.")
+                                        )
+                                        0
+                                    }
+                                }
+                        )
             )
         }
     }

@@ -15,5 +15,26 @@ data class TestScenario(
     val z: Double,
     
     val yaw: Float,
-    val pitch: Float
+    val pitch: Float,
+    
+    
+    val health: Float,
+    val hunger: Int,
+    val saturation: Float,
+    
+    val totalExperience: Int,
+    val experienceLevel: Int,
+    val experienceProgress: Float,
+    
+    val gamemode: GameType,
+    
+    val inventory: List<ItemStack>,
+    val armour: List<ItemStack>,
+    val offhand: ItemStack,
+    val selectedSlot: Int,
+    
+    val tags: Set<String>,
+    val team: String?,
+    
+    val extraNbt: CompoundTag
 )
