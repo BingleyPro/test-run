@@ -12,5 +12,9 @@ class TestRun : ModInitializer {
 
     override fun onInitialize() {
         LOGGER.info("Initializing TestRun...")
+        
+        TestRunCommands.register()
+        
+        LOGGER.info("TestRun loaded successfully.")
     }
 }
