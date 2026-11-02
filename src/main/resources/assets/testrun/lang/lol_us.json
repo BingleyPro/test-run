@@ -12,7 +12,9 @@
     "message.testrun.deleted": "YOU KILLED %s!",
     "message.testrun.again": "WE DOIN DIS AGAIN!!",
     "message.testrun.scenario_or_function_missing": "SOMTHING MISSING!!",
-    "message.testrun.set_reset_function": "RESET IS %2$s FOR %2$s!!",
+    "message.testrun.set_reset_function": "RESET IS %2$s FOR %1$s!!",
     "message.testrun.list_empty": "NO SCENARYOS HERE!!",
-    "message.testrun_list": "UR SCENARYOS: $s"
+    "message.testrun.list": "UR SCENARYOS: %s",
+    "message.testrun.finished": "OMG U DID IT IN %s SECONDS!!",
+    "message.testrun.no_active_attempt": "UR NOT EVEN TRYING RN!!"
 }

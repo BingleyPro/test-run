@@ -22,15 +22,15 @@ object FinishCommand {
                 
                 if (seconds == null) {
                     context.source.sendFailure(
-                        Component.literal("No active attempt.")
+                        Component.translatable("message.testrun.no_active_attempt")
                     )
                     return@executes 0
                 }
                 
-                val message = "Finished in %.2f seconds!".format(seconds)
+                val message = Component.translatable("message.testrun.finished", seconds)
                 
                 context.source.sendSuccess(
-                    { Component.literal(message) },
+                    { message },
                     false
                 )
                 1

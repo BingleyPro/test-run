@@ -14,5 +14,7 @@
     "message.testrun.scenario_or_function_missing": "That adventure or function must be lost at sea!",
     "message.testrun.set_reset_function": "The reset spell for %1$s appeats to be %2$s now!",
     "message.testrun.list_empty": "Yer logbook be empty!",
-    "message.testrun_list": "Adventures: $s"
+    "message.testrun.list": "Adventures: $s",
+    "message.testrun.finished": "Yer built that ship in %s seconds!",
+    "message.testrun.no_active_attempt": "Ye go no ship now, matey!"
 }

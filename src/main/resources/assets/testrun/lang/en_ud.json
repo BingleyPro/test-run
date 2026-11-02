@@ -14,5 +14,7 @@
     "message.testrun.scenario_or_function_missing": "˙ʇsᴉxǝ ʇou sǝop uoᴉʇɔunɟ ɹo oᴉɹɐuǝɔs ǝɥʇ ɹǝɥʇᴉƎ",
     "message.testrun.set_reset_function": "˙%2$s oʇ %1$s ɹoɟ uoᴉʇɔunɟ ʇǝsǝɹ ǝɥʇ ʇǝS",
     "message.testrun.list_empty": "˙punoɟ soᴉɹɐuǝɔs oN",
-    "message.testrun_list": "$s :soᴉɹɐuǝɔS"
+    "message.testrun.list": "$s :soᴉɹɐuǝɔS",
+    "message.testrun.finished": "¡spuoɔǝs %s uᴉ pǝɥsᴉuᴉℲ",
+    "message.testrun.no_active_attempt": "˙ʇdɯǝʇʇɐ ǝʌᴉʇɔɐ oN"
 }

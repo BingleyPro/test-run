@@ -14,5 +14,7 @@
     "message.testrun.scenario_or_function_missing": "Alas, neither the trial or function could be found.",
     "message.testrun.set_reset_function": "Thine reset function of %1$s is now %2$s.",
     "message.testrun.list_empty": "No trial hath been preserved.",
-    "message.testrun_list": "Thy recorded trials: %s"
+    "message.testrun.list": "Thy recorded trials: %s",
+    "message.testrun.finished": "Thy completed in %s seconds.",
+    "message.testrun.no_active_attempt": "Alas! No trial is active."
 }
