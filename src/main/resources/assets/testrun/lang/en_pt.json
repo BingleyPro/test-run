@@ -17,5 +17,6 @@
     "message.testrun.list_empty": "Yer logbook be empty!",
     "message.testrun.list": "Adventures: $s",
     "message.testrun.finished": "Yer built that ship in %s seconds!",
-    "message.testrun.no_active_attempt": "Ye go no ship now, matey!"
+    "message.testrun.no_active_attempt": "Ye go no ship now, matey!",
+    "message.testrun.copied": "Multipled the treasure of %1$s to go on the ship %2$s."
 }

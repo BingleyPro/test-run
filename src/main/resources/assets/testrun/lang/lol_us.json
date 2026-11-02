@@ -17,5 +17,6 @@
     "message.testrun.list_empty": "NO SCENARYOS HERE!!",
     "message.testrun.list": "UR SCENARYOS: %s",
     "message.testrun.finished": "OMG U DID IT IN %s SECONDS!!",
-    "message.testrun.no_active_attempt": "UR NOT EVEN TRYING RN!!"
+    "message.testrun.no_active_attempt": "UR NOT EVEN TRYING RN!!",
+    "message.testrun.copied": "OMG NEW SCENARYO %2$s IS ACTUALLY SCENARYO %1$s!!"
 }

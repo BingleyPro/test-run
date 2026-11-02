@@ -54,7 +54,7 @@ object RunCommand {
                     }
             )
         }
-            
+
         return Commands.literal("run").then(nameArgument)
     }
     
@@ -64,7 +64,7 @@ object RunCommand {
             context, "name"
         )
         
-        if (ScenarioManager.restore(player, name)) {
+        if (ScenarioManager.restore(player, name, part)) {
             
             val message = if (part == "all") {
                 Component.translatable("message.testrun.restored", name)

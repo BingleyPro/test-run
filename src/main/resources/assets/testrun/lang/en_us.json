@@ -17,5 +17,6 @@
     "message.testrun.list_empty": "No scenarios found.",
     "message.testrun.list": "Scenarios: %s",
     "message.testrun.finished": "Finished in %s seconds!",
-    "message.testrun.no_active_attempt": "No active attempt."
+    "message.testrun.no_active_attempt": "No active attempt.",
+    "message.testrun.copied": "Copied scenario %1$s to scenario %2$s."
 }

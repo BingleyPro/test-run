@@ -143,9 +143,9 @@ object ScenarioManager {
             if (!teleport) return false
         }
         
-        player.setGameMode(scenario.gamemode)
-        
         if (part == "all" || part == "player") {
+            player.setGameMode(scenario.gamemode)
+            
             player.health = scenario.health
             player.foodData.foodLevel = scenario.hunger
             player.foodData.setSaturation(scenario.saturation)
@@ -302,4 +302,18 @@ object ScenarioManager {
         
         return true
     }
+    
+    fun copy(player: ServerPlayer, old: String, new: String): Boolean {
+        val original = get(player, old) ?: return false
+        
+        val copied = original.copy(name = new)
+            
+        TestRunSavedData.forPlayer(player).save(
+            player.uuid,
+            copied
+        )
+        
+        return true
+    }
+    
 }

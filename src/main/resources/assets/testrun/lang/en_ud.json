@@ -17,5 +17,6 @@
     "message.testrun.list_empty": "˙punoɟ soᴉɹɐuǝɔs oN",
     "message.testrun.list": "$s :soᴉɹɐuǝɔS",
     "message.testrun.finished": "¡spuoɔǝs %s uᴉ pǝɥsᴉuᴉℲ",
-    "message.testrun.no_active_attempt": "˙ʇdɯǝʇʇɐ ǝʌᴉʇɔɐ oN"
+    "message.testrun.no_active_attempt": "˙ʇdɯǝʇʇɐ ǝʌᴉʇɔɐ oN",
+    "message.testrun.copied": "˙%2$s oᴉɹɐuǝɔs oʇ %1$s oᴉɹɐuǝɔs pǝᴉdoƆ"
 }

@@ -17,5 +17,6 @@
     "message.testrun.list_empty": "No trial hath been preserved.",
     "message.testrun.list": "Thy recorded trials: %s",
     "message.testrun.finished": "Thy completed in %s seconds.",
-    "message.testrun.no_active_attempt": "Alas! No trial is active."
+    "message.testrun.no_active_attempt": "Alas! No trial is active.",
+    "message.testrun.copied": "Thy creted trial %2$s for thine purpose of coping trial %1$s."
 }
