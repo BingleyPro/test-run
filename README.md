@@ -76,3 +76,5 @@ Features that aren't included:
 
 This is an active WIP, and is a small project. It may not receive future updates and I am considering making a more advanced creator toolpack that would contain a similar feature to what mod does/will do (but at this stage this is unlikely)
 
+I've worked on Minecraft maps and datapacks before, but this is really my first mod.
+
