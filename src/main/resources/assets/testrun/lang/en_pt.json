@@ -1,6 +1,9 @@
 {
     "key.category.testrun.controls": "TestRun, Arrr!",
     "key.testrun.again": "Revisit Yer Last Adventure!",
+    "key.testrun.quicksave": "Arr! Quickly! Save!",
+    "key.testrun.quickload": "Arr! Quickly! Reload!",
+    "key.testrun.finishattempt": "Complete Yer Quest",
     "message.testrun.pinged": "Arrr! TestRun be shipshape!",
     "message.testrun.saved": "Arrr, ye stowed %s.",
     "message.testrun.restored": "Adventure %s be restored!",

@@ -265,6 +265,8 @@ object ScenarioManager {
             )
         }
         
+        val attempt = PracticeManager.start(player, name)
+        
         return true
     }
     

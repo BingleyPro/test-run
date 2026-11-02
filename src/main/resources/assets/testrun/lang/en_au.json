@@ -3,6 +3,7 @@
     "key.testrun.again": "Restart Last Scenario",
     "key.testrun.quicksave": "Quick Save",
     "key.testrun.quickload": "Quick Load",
+    "key.testrun.finishattempt": "Finish Attempt",
     "message.testrun.pinged": "TestRun is working.",
     "message.testrun.saved": "Scenario %s saved successfully.",
     "message.testrun.restored": "Scenario %s was restored.",

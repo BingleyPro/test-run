@@ -40,6 +40,7 @@ object TestRunCommands {
                     .then(ListCommand.build())
                     .then(AgainCommand.build())    
                     .then(RunFromCommand.build())      
+                    .then(FinishCommand.build())
             )
         }
     }

@@ -40,6 +40,15 @@ object TestRunClient : ClientModInitializer {
             )
         )
         
+        val finishAttemptKey = KeyMappingHelper.registerKeyMapping(
+            KeyMapping(
+                "key.testrun.finishattempt",
+                InputConstants.Type.KEYBOARD,
+                InputConstants.KEY_M,
+                category
+            )
+        )
+        
         ClientTickEvents.END_CLIENT_TICK.register { client ->
             while (restartKey.consumeClick()) {
                 client.connection?.sendCommand("testrun again")
@@ -51,6 +60,10 @@ object TestRunClient : ClientModInitializer {
             
             while (quickLoadKey.consumeClick()) {
                 client.connection?.sendCommand("testrun run quick")
+            }
+            
+            while (finishAttemptKey.consumeClick()) {
+                client.connection?.sendCommand("testrun finish")
             }
         }
     }
