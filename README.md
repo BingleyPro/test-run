@@ -6,7 +6,7 @@ It allows operators to save their current player state (including position, inve
 
 ## Instructions
 
-Download TestRun from GitHub Releases on the side, or from Modrinth: [link].
+Download TestRun from GitHub Releases on the side, or from [Modrinth](https://modrinth.com/project/test-run-bingley/).
 
 If you manually install it, you will need Fabric API and Fabric Language Kotlin. Place the mod and dependencies into your mods folder.
 
