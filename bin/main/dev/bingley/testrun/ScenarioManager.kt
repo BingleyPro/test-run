@@ -3,6 +3,7 @@ package dev.bingley.testrun
 import net.minecraft.server.level.ServerPlayer
 import net.minecraft.world.entity.EquipmentSlot
 import net.minecraft.world.item.ItemStack
+import net.minecraft.world.clock.WorldClocks
 import net.minecraft.nbt.CompoundTag
 import net.minecraft.resources.Identifier
 
@@ -22,6 +23,26 @@ object ScenarioManager {
             putInt("FrozenTicks", player.ticksFrozen)
             putDouble("FallDistance", player.fallDistance)
             putBoolean("NoGravity", player.isNoGravity)
+            putBoolean("Sprinting", player.isSprinting)
+            putBoolean("Sneaking", player.isShiftKeyDown)
+            putDouble("VelocityX", player.deltaMovement.x)
+            putDouble("VelocityY", player.deltaMovement.y)
+            putDouble("VelocityZ", player.deltaMovement.z)
+            
+            val clock = player.level().registryAccess()
+                .get(WorldClocks.OVERWORLD)
+                .orElse(null)
+                
+            if (clock != null) {
+                val time = player.level().clockManager()
+                    .getInstance(clock)
+                    .totalTicks()
+                    
+                putLong("WorldTime", time)
+            }
+            
+            putBoolean("Raining", player.level().isRaining)
+            putBoolean("Thundering", player.level().isThundering)
         }
         val scenario = TestScenario(
             name = name,
@@ -62,7 +83,7 @@ object ScenarioManager {
             team = player.team?.name,
             extraNbt = extraNbt,
             
-            resetFunction = get(player, name)?.resetFunction 
+            resetFunction = get(player, name)?.resetFunction
         )
         
         TestRunSavedData.forPlayer(player).save(
@@ -196,8 +217,39 @@ object ScenarioManager {
         player.remainingFireTicks = nbt.getIntOr("Fire", 0)
         player.ticksFrozen = nbt.getIntOr("FrozenTicks", 0)
         player.fallDistance = nbt.getDoubleOr("FallDistance", 0.0)
-
         player.isNoGravity = nbt.getBooleanOr("NoGravity", false)
+        player.isSprinting = nbt.getBooleanOr("Sprinting", false)
+        player.isShiftKeyDown = nbt.getBooleanOr("Sneaking", false)
+        
+        player.setDeltaMovement(
+            nbt.getDoubleOr("VelocityX", 0.0),
+            nbt.getDoubleOr("VelocityY", 0.0),
+            nbt.getDoubleOr("VelocityZ", 0.0),
+        )
+        
+        if (nbt.contains("WorldTime")) {
+            val clock = level.registryAccess()
+                .get(WorldClocks.OVERWORLD)
+                .orElse(null)
+                
+            if (clock != null) {
+                level.clockManager().setTotalTicks(
+                    clock,
+                    nbt.getLongOr("WorldTime", 0L)
+                )
+            }
+        }
+        
+        if (nbt.contains("Raining")) {
+            val raining = nbt.getBooleanOr("Raining", false)
+            val thundering = nbt.getBooleanOr("Thundering", false)
+            
+            if (raining) {
+                server.setWeatherParameters(0, 12000, true, thundering)
+            } else {
+                server.setWeatherParameters(12000, 0, false, false)
+            }
+        }
         
         if (resetFunction != null) {
             server.functions.execute(

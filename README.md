@@ -1,6 +1,6 @@
 # Test Run
 
-> Note: This is a WIP, and has no available build as of yet. Check back tomorrow!
+> Note: This is an early alpha project, and has no available build as of yet. Check back tomorrow!
 
 Test Run is a Minecraft Fabric mod designed for developers and map creators. It allows users to create a state of the current world and the player's dimension, position, hunger, health, tags, and other information. This can then be reloaded multiple times for testing purposes.
 
@@ -24,9 +24,11 @@ If you want to access it as another player, you can try using `/execute as [play
 - Quick save and load keys
 - Ability for other players to load another player's scenario
 
-Features coming soon:
+Possible features that may come out:
 
-- Other attributes for scenarios to save, like time, entities etc.
+- Duplicating scenarios
+- Manually editing certain scenario features
+- Exporting scenarios
 
 ## Notes
 
