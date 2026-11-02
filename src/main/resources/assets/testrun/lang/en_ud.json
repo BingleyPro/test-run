@@ -19,5 +19,7 @@
     "message.testrun.list": "$s :soᴉɹɐuǝɔS",
     "message.testrun.finished": "¡spuoɔǝs %s uᴉ pǝɥsᴉuᴉℲ",
     "message.testrun.no_active_attempt": "˙ʇdɯǝʇʇɐ ǝʌᴉʇɔɐ oN",
-    "message.testrun.copied": "˙%2$s oᴉɹɐuǝɔs oʇ %1$s oᴉɹɐuǝɔs pǝᴉdoƆ"
+    "message.testrun.copied": "˙%2$s oᴉɹɐuǝɔs oʇ %1$s oᴉɹɐuǝɔs pǝᴉdoƆ",
+    "message.testrun.function_cleared": "˙%s oᴉɹɐuǝɔs ɯoɹɟ uoᴉʇɔunɟ ʇǝsǝɹ ǝɥʇ pǝʌoɯǝꓤ",
+    "message.testrun.function_clear_failed": "˙uoᴉʇɔunɟ ʇǝsǝɹ ou sɐɥ ɹo punoɟ ʇou sɐʍ %s oᴉɹɐuǝɔS"
 }

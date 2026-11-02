@@ -19,5 +19,7 @@
     "message.testrun.list": "Adventures: $s",
     "message.testrun.finished": "Yer built that ship in %s seconds!",
     "message.testrun.no_active_attempt": "Ye go no ship now, matey!",
-    "message.testrun.copied": "Multipled the treasure of %1$s to go on the ship %2$s."
+    "message.testrun.copied": "Ye multipled the treasure of %1$s to go on the ship %2$s.",
+    "message.testrun.function_cleared": "Yer stolen the reset function from the adventure %s.",
+    "message.testrun.function_clear_failed": "Arr! Where's that adventure %s gone now?"
 }

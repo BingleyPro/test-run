@@ -19,5 +19,7 @@
     "message.testrun.list": "Thy recorded trials: %s",
     "message.testrun.finished": "Thy completed in %s seconds.",
     "message.testrun.no_active_attempt": "Alas! No trial is active.",
-    "message.testrun.copied": "Thy creted trial %2$s for thine purpose of coping trial %1$s."
+    "message.testrun.copied": "Thy creted trial %2$s for thine purpose of coping trial %1$s.",
+    "message.testrun.function_cleared": "Thine hast relocated the reset function for trial %s.",
+    "message.testrun.function_clear_failed": "Alas! There hath been a  mistake."
 }

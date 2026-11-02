@@ -387,4 +387,18 @@ object ScenarioManager {
         return true
     }
     
+    fun clearResetFunction(player: ServerPlayer, name: String): Boolean {
+        val scenario = get(player, name) ?: return false
+        
+        if (scenario.resetFunction == null) {
+            return false
+        }
+        
+        val updated = scenario.copy(resetFunction = null)
+        
+        TestRunSavedData.forPlayer(player).update(player.uuid, updated)
+        
+        return true
+    }
+    
 }

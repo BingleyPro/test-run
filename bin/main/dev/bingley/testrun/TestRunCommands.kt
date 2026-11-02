@@ -42,6 +42,7 @@ object TestRunCommands {
                     .then(RunFromCommand.build())      
                     .then(FinishCommand.build())
                     .then(CopyCommand.build())
+                    .then(ClearFunctionCommand.build())
             )
         }
     }

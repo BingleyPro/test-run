@@ -19,5 +19,7 @@
     "message.testrun.list": "Scenarios: %s",
     "message.testrun.finished": "Finished in %s seconds!",
     "message.testrun.no_active_attempt": "No active attempt.",
-    "message.testrun.copied": "Copied scenario %1$s to scenario %2$s."
+    "message.testrun.copied": "Copied scenario %1$s to scenario %2$s.",
+    "message.testrun.function_cleared": "Removed the reset function from scenario %s.",
+    "message.testrun.function_clear_failed": "Scenario %s was not found or has no reset function."
 }
