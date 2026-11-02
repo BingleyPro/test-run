@@ -1,12 +1,31 @@
 # Test Run
 
-> Note: This is an early alpha project, and has no available build as of yet. Check back tomorrow!
+Test Run is a Minecraft Fabric 26.3 mod designed for map makers, developers, testers and creators who need to repeatedly test a specific situation.
 
-Test Run is a Minecraft Fabric mod designed for developers and map creators. It allows users to create a state of the current world and the player's dimension, position, hunger, health, tags, and other information. This can then be reloaded multiple times for testing purposes.
+It allows operators to save their current player state (including position, inventory, health, experience, gamemode and other attributes), and then restore it whenever you need to retest something.
+
+## Commands
+
+| Command | Description |
+|---------|-------------|
+|`/testrun save <name>` | Save a scenario |
+|`/testrun run <name>` | Restore a scenario |
+|`/testrun save <name> <part>` | Selectively updated a saved scenario |
+|`/testrun run <name> <part>` | Restore only part of a saved scenario |
+|`/testrun again` | Repeat the last scenario |
+|`/testrun info <name>` | Show scenario information |
+|`/testrun copy <old> <new>` | Duplicate a scenario |
+|`/testrun delete <name>` | Delete a scenario |
+|`/testrun runfrom <player> <name>` | Load another player's scenario |
+|`/testrun setup <name> <function>` | Attach a datapack reset function |
 
 ## Instructions
 
 Download the mod file from the releases tab from the side, or from Modrinth: [link soon]
+
+Place the mod into your mods folder.
+
+Tips:
 
 - When in a world, use `/testrun save [name]` to save a scenario.
 - You can load scenarios with with `/testrun run [name]`
@@ -39,5 +58,3 @@ Possible features that may come out (maybe):
 This is an active WIP, and is a small project. It may not receive future updates once complete (but it might!), and I am considering making a more advanced creator toolpack that would contain a similar feature to twhat mod does/will do.
 
 This is also one of my first Minecraft mods. I've worked on multiple maps and datapacks in the past, but never really mods, so here it is.
-
-Built as part of Hack Club's Terra!
