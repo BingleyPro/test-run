@@ -6,6 +6,7 @@
     "key.testrun.finishattempt": "ʇdɯǝʇʇ∀ ɥsᴉuᴉℲ",
     "message.testrun.pinged": "˙ƃuᴉʞɹoʍ sᴉ unꓤʇsǝ⊥",
     "message.testrun.saved": "˙ʎllnɟssǝɔɔns pǝʌɐs %s oᴉɹɐuǝɔS",
+    "message.testrun.saved_part": "˙%1$s oᴉɹɐuǝɔs oʇ %2$s pǝʌɐS",
     "message.testrun.restored": "˙pǝɹoʇsǝɹ sɐʍ %s oᴉɹɐuǝɔS",
     "message.testrun.restored_part": "˙%1$s oᴉɹɐuǝɔs ɯoɹɟ %2$s pǝɹoʇsǝꓤ",
     "message.testrun.scenario_missing": "˙punoɟ ʇou sɐʍ %s oᴉɹɐuǝɔS",

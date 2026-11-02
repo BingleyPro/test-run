@@ -6,6 +6,7 @@
     "key.testrun.finishattempt": "Complete Yer Quest",
     "message.testrun.pinged": "Arrr! TestRun be shipshape!",
     "message.testrun.saved": "Arrr, ye stowed %s.",
+    "message.testrun.saved_part": "Arrr, ye stowed %1$s. But only the treasure o' %2$s.",
     "message.testrun.restored": "Adventure %s be restored!",
     "message.testrun.restored_part": "Adventure %1$s be restored! But just yer %2%s.",
     "message.testrun.scenario_missing": "No treasture by the name o' %s be found!",

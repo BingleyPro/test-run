@@ -15,7 +15,12 @@ object ScenarioManager {
         EquipmentSlot.HEAD
     )
     
-    fun save(player: ServerPlayer, name: String) {
+    fun save(player: ServerPlayer, name: String, part: String = "all"): Boolean {
+        
+        val previous = get(player, name)
+        if (part != "all" && previous == null) {
+            return false // Partial saves require an exisiting scenario
+        }
         
         val extraNbt = CompoundTag().apply {
             putInt("Air", player.airSupply)
@@ -44,7 +49,7 @@ object ScenarioManager {
             putBoolean("Raining", player.level().isRaining)
             putBoolean("Thundering", player.level().isThundering)
         }
-        val scenario = TestScenario(
+        val current = TestScenario(
             name = name,
             dimension = player.level().dimension(),
                 
@@ -86,10 +91,76 @@ object ScenarioManager {
             resetFunction = get(player, name)?.resetFunction
         )
         
-        TestRunSavedData.forPlayer(player).save(
-            player.uuid,
-            scenario
-        )
+        val old = previous ?: current
+        val updatedNbt = old.extraNbt.copy()
+        
+        if (part == "player" || part == "world") {
+            val changes = current.extraNbt.copy()
+            
+            if (part == "player") {
+                changes.remove("WorldTime")
+                changes.remove("Raining")
+                changes.remove("Thundering")
+            } else {
+                val playerKeys = listOf("Air", "Fire", "FrozenTicks", "FallDistance", "NoGravity", "Sprinting", "Sneaking", "VelocityX", "VelocityY", "VelocityZ")
+                
+                for (key in playerKeys) {
+                    changes.remove(key)
+                }
+            }
+            
+            updatedNbt.merge(changes)
+        }
+
+        
+        val updated = when (part) {
+            "all" -> current
+            
+            "position" -> old.copy(
+                dimension = current.dimension,
+                x = current.x,
+                y = current.y,
+                z = current.z,
+                yaw = current.yaw,
+                pitch = current.pitch
+            )
+            
+            "inventory" -> old.copy(
+                inventory = current.inventory,
+                armour = current.armour,
+                offhand = current.offhand,
+                selectedSlot = current.selectedSlot
+            )
+            
+            "player" -> old.copy(
+                health = current.health,
+                hunger = current.hunger,
+                saturation = current.saturation,
+                totalExperience = current.totalExperience,
+                experienceLevel = current.experienceLevel,
+                experienceProgress = current.experienceProgress,
+                gamemode = current.gamemode,
+                tags = current.tags,
+                team = current.team,
+                extraNbt = updatedNbt
+            )
+            
+            "world" -> old.copy(
+                extraNbt = updatedNbt
+            )
+            
+            else -> return false
+        }
+        
+        val data = TestRunSavedData.forPlayer(player)
+        
+        if (part == "all") {
+            data.save(player.uuid, updated)
+        } else {
+            data.update(player.uuid, updated)
+        }
+        
+        return true
     }
     
     fun get(player: ServerPlayer, name: String): TestScenario? {

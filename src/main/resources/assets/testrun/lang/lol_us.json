@@ -6,6 +6,7 @@
     "key.testrun.finishattempt": "U FINISHED CONGRATS!",
     "message.testrun.pinged": "TESTRUN IZ ALIVE!!!",
     "message.testrun.saved": "UR SCENARYO %s IZ SAVED!",
+    "message.testrun.saved_part": "SCENARYO %1$s NOW HAZ %2$s!!",
     "message.testrun.restored": "OMG %s IS BACK!!",
     "message.testrun.restored_part": "OMG THE %2$s OF %1$s HAS RETURNED??",
     "message.testrun.scenario_missing": "OH NO! %s IZ GONE!",

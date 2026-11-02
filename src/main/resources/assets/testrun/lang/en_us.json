@@ -6,6 +6,7 @@
     "key.testrun.finishattempt": "Finish Attempt",
     "message.testrun.pinged": "TestRun is working.",
     "message.testrun.saved": "Scenario %s saved successfully.",
+    "message.testrun.saved_part": "Saved %2$s to scenario %1$s.",
     "message.testrun.restored": "Scenario %s was restored.",
     "message.testrun.restored_part": "Restored %2$s from scenario %1$s.",
     "message.testrun.scenario_missing": "Scenario %s was not found.",

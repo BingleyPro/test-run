@@ -38,5 +38,5 @@ data class TestScenario(
     
     val extraNbt: CompoundTag,
     
-    val resetFunction: String? = null
+    val resetFunction: String? = null,
 )
