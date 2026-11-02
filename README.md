@@ -4,6 +4,14 @@ Test Run is a Minecraft Fabric 26.3 mod designed for map makers, developers, tes
 
 It allows operators to save their current player state (including position, inventory, health, experience, gamemode and other attributes), and then restore it whenever you need to retest something.
 
+## Instructions
+
+Download TestRun from GitHub Releases on the side, or from Modrinth: [link].
+
+If you manually install it, you will need Fabric API and Fabric Language Kotlin. Place the mod and dependencies into your mods folder.
+
+Launch Minecraft using the Fabric Loader.
+
 ## Commands
 
 | Command | Description |
@@ -18,12 +26,22 @@ It allows operators to save their current player state (including position, inve
 |`/testrun delete <name>` | Delete a scenario |
 |`/testrun runfrom <player> <name>` | Load another player's scenario |
 |`/testrun setup <name> <function>` | Attach a datapack reset function |
+|`/testrun list` | List all scenarios |
+|`/testrun finish` | Finish an scenario attempt, gives you the time it took between starting and ending |
 
-## Instructions
+### Selective saving and restoration
 
-Download the mod file from the releases tab from the side, or from Modrinth: [link soon]
+When using `save` or `run`, you can optionally specify which parts of the scenario to save or restore
 
-Place the mod into your mods folder.
+| Part | Description |
+|---------|-------------|
+|`all` | Everything (default) |
+|`position` | Position, dimension and rotation |
+|`inventory` | Inventory, armour and offhand |
+|`player` | Health, hunger, experience, gamemode and other player attributes |
+|`world` | World time and weather |
+
+Note that selective saving requires an exisiting scenario.
 
 Tips:
 
@@ -36,25 +54,23 @@ Tips:
 
 ## Features
 
-- Save, load, and delete scenarios
-- List all scenarios
-- Scenarios contain position, rotation, hunger, saturation, gamemode, tags, teams, inventory, and some other nbt data
+- Save, restore, inspect, copy and delete scenarios
+- Persistent scenario storage between sessions
+- Save position, rotation, dimension, inventory, equipment, health, hunger, experience, gamemode, tags, teams, world time, weather and some other nbt data
+- Selectively save or restore specific attributes
+- Restore scenarios created by other players
 - Rerun the last scenario used with `/testrun again`, or use a hotkey (default: K)
 - Run a reset function when loading a scenario with `/testrun setup [scenario_name] [function_name]`
-- Scenarios are persistent between sessions
-- Command autocomplete for scenarios and datapack functions
-- Quick save and load keys
-- Ability for other players to load another player's scenario
-- Selective restoration
+- Full command autocomplete
+- Quick save and load keys (default: F6 and F7)
+- Supports Pirate Speak, Shakespearean and LOLCAT languages
 
-Possible features that may come out (maybe):
+Features that aren't included:
 
-- Duplicating scenarios
 - Manually editing certain scenario features
 - Exporting scenarios
 
 ## Notes
 
-This is an active WIP, and is a small project. It may not receive future updates once complete (but it might!), and I am considering making a more advanced creator toolpack that would contain a similar feature to twhat mod does/will do.
+This is an active WIP, and is a small project. It may not receive future updates and I am considering making a more advanced creator toolpack that would contain a similar feature to what mod does/will do (but at this stage this is unlikely)
 
-This is also one of my first Minecraft mods. I've worked on multiple maps and datapacks in the past, but never really mods, so here it is.
