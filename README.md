@@ -43,7 +43,7 @@ When using `save` or `run`, you can optionally specify which parts of the scenar
 |`player` | Health, hunger, experience, gamemode and other player attributes |
 |`world` | World time and weather |
 
-Note that selective saving requires an exisiting scenario.
+Note that selective saving requires an existing scenario.
 
 Tips:
 
