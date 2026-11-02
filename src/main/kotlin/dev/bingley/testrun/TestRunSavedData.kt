@@ -45,7 +45,10 @@ class TestRunSavedData : SavedData() {
     
     fun update(playerId: UUID, scenario: TestScenario) {
         // Update a scenario
-        save(playerId, scenario)
+        val playerScenarios = scenarios[playerId] ?: return
+        
+        playerScenarios[scenario.name] = scenario
+        setDirty()
     }
     
     fun remember(playerId: UUID, name: String) {
@@ -206,6 +209,10 @@ class TestRunSavedData : SavedData() {
             ItemStack.OPTIONAL_CODEC.listOf(),
             ops
         ).orElse(null) ?: return null
+        
+        if (armour.size != 4) {
+            return null
+        }
         
         val offhand = tag.read(
             "Offhand",

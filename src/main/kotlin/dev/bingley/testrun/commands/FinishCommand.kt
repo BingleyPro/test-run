@@ -27,7 +27,9 @@ object FinishCommand {
                     return@executes 0
                 }
                 
-                val message = Component.translatable("message.testrun.finished", seconds)
+                val formatted = "%.2f".format(java.util.Locale.ROOT, seconds)
+                
+                val message = Component.translatable("message.testrun.finished", formatted)
                 
                 context.source.sendSuccess(
                     { message },

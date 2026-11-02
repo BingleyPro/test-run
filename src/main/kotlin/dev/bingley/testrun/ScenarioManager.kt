@@ -124,14 +124,9 @@ object ScenarioManager {
         val level = server.getLevel(scenario.dimension)
             ?: return false
             
-        val resetFunction = scenario.resetFunction?.let {
-            functionName ->
-            val id = Identifier.tryParse(functionName) ?: return false
-            
-            server.functions.get(id).orElse(null)
-                ?: return false
-        
-        }
+        val resetFunction = scenario.resetFunction
+            ?.let { Identifier.tryParse(it) }
+            ?.let {server.functions.get(it).orElse(null)}
         
         val teleport = player.teleportTo(
             level,

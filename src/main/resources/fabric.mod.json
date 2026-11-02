@@ -9,7 +9,6 @@
         "homepage": "",
         "sources": ""
     },
-    "license": "MIT",
     "icon": "assets/testrun/icon.png",
     "environment": "*",
     "entrypoints": {
@@ -26,6 +25,8 @@
     "depends": {
         "fabricloader": ">=0.15.0",
         "minecraft": "~26.3",
-        "java": ">=25"
+        "java": ">=25",
+        "fabric-api": "*",
+        "fabric-language-kotlin": ">=1.14.2+kotlin.2.4.21"
     }
 }

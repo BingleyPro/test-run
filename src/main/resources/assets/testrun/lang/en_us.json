@@ -14,7 +14,7 @@
     "message.testrun.scenario_or_function_missing": "Either the scenario or function does not exist.",
     "message.testrun.set_reset_function": "Set the reset function for %1$s to %2$s.",
     "message.testrun.list_empty": "No scenarios found.",
-    "message.testrun.list": "Scenarios: $s",
+    "message.testrun.list": "Scenarios: %s",
     "message.testrun.finished": "Finished in %s seconds!",
     "message.testrun.no_active_attempt": "No active attempt."
 }
