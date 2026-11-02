@@ -4,6 +4,8 @@ Test Run is a Minecraft Fabric 26.3 mod designed for map makers, developers, tes
 
 It allows operators to save their current player state (including position, inventory, health, experience, gamemode and other attributes), and then restore it whenever you need to retest something.
 
+![TestRun Demo](assets/testrun-demo.gf)
+
 ## Instructions
 
 Download TestRun from GitHub Releases on the side, or from [Modrinth](https://modrinth.com/project/test-run-bingley/).
