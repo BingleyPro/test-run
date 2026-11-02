@@ -38,7 +38,8 @@ object TestRunCommands {
                     .then(SetupCommand.build())
                     .then(InfoCommand.build())
                     .then(ListCommand.build())
-                    .then(AgainCommand.build())          
+                    .then(AgainCommand.build())    
+                    .then(RunFromCommand.build())      
             )
         }
     }

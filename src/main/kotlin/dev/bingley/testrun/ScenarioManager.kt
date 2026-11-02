@@ -92,7 +92,11 @@ object ScenarioManager {
     }
     
     fun restore(player: ServerPlayer, name: String): Boolean {
-        val scenario = get(player, name) ?: return false
+        return restoreAdv(player, player, name)
+    }
+    
+    fun restoreAdv(owner: ServerPlayer, player: ServerPlayer, name: String): Boolean {
+        val scenario = get(owner, name) ?: return false
         
         val server = player.level().server
         
@@ -202,10 +206,12 @@ object ScenarioManager {
             )
         }
         
-        TestRunSavedData.forPlayer(player).remember(
-            player.uuid,
-            name
-        )
+        if (owner.uuid == player.uuid) {
+            TestRunSavedData.forPlayer(player).remember(
+                player.uuid,
+                name
+            )
+        }
         
         return true
     }
