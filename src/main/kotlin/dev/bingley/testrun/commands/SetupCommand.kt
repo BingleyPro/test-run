@@ -1,4 +1,7 @@
-package dev.bingley.testrun
+package dev.bingley.testrun.commands
+
+import dev.bingley.testrun.ScenarioManager
+import dev.bingley.testrun.TestScenario
 
 import com.mojang.brigadier.arguments.StringArgumentType
 import com.mojang.brigadier.builder.LiteralArgumentBuilder
