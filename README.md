@@ -8,9 +8,12 @@ Test Run is a Minecraft Fabric mod designed for developers and map creators. It 
 
 Download the mod file from the releases tab from the side, or from Modrinth: [link soon]
 
-When in the world, use `/testrun save [name] to save a scenario`. This can then be loaded with `/testrun run [name]`. You can list all scenarios with `/testrun list`.
-
-If you want to access it as another player, you can try using `/execute as [player] run testrun...` to run it as that specific player.
+- When in a world, use `/testrun save [name]` to save a scenario.
+- You can load scenarios with with `/testrun run [name]`
+- You can list all scenarios with `/testrun list`.
+- You can load another player's scenario with `/testrun runfrom [player] [name]`
+- If you want to make a player load their own scenario, try using `/execute as [player] run testrun run [name]` to run it as that specific player.
+- To rerun the last used scenario, use `/testrun again`.
 
 ## Features
 
@@ -23,8 +26,9 @@ If you want to access it as another player, you can try using `/execute as [play
 - Command autocomplete for scenarios and datapack functions
 - Quick save and load keys
 - Ability for other players to load another player's scenario
+- Selective restoration
 
-Possible features that may come out:
+Possible features that may come out (maybe):
 
 - Duplicating scenarios
 - Manually editing certain scenario features

@@ -7,6 +7,7 @@
     "message.testrun.pinged": "˙ƃuᴉʞɹoʍ sᴉ unꓤʇsǝ⊥",
     "message.testrun.saved": "˙ʎllnɟssǝɔɔns pǝʌɐs %s oᴉɹɐuǝɔS",
     "message.testrun.restored": "˙pǝɹoʇsǝɹ sɐʍ %s oᴉɹɐuǝɔS",
+    "message.testrun.restored_part": "˙%1$s oᴉɹɐuǝɔs ɯoɹɟ %2$s pǝɹoʇsǝꓤ",
     "message.testrun.scenario_missing": "˙punoɟ ʇou sɐʍ %s oᴉɹɐuǝɔS",
     "message.testrun.last_scenario_missing": "˙punoɟ sɐʍ oᴉɹɐuǝɔs ʇsɐl oN",
     "message.testrun.deleted": "˙pǝʇǝlǝp sɐʍ %s oᴉɹɐuǝɔS",

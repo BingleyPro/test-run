@@ -112,11 +112,11 @@ object ScenarioManager {
         )
     }
     
-    fun restore(player: ServerPlayer, name: String): Boolean {
-        return restoreAdv(player, player, name)
+    fun restore(player: ServerPlayer, name: String, part: String = "all"): Boolean {
+        return restoreAdv(player, player, name, part)
     }
     
-    fun restoreAdv(owner: ServerPlayer, player: ServerPlayer, name: String): Boolean {
+    fun restoreAdv(owner: ServerPlayer, player: ServerPlayer, name: String, part: String = "all"): Boolean {
         val scenario = get(owner, name) ?: return false
         
         val server = player.level().server
@@ -128,129 +128,141 @@ object ScenarioManager {
             ?.let { Identifier.tryParse(it) }
             ?.let {server.functions.get(it).orElse(null)}
         
-        val teleport = player.teleportTo(
-            level,
-            scenario.x,
-            scenario.y,
-            scenario.z,
-            emptySet(),
-            scenario.yaw,
-            scenario.pitch,
-            true
-        )
-        
-        if (!teleport) return false // check if teleport is valid
+        if (part == "all" || part == "position") {
+            val teleport = player.teleportTo(
+                level,
+                scenario.x,
+                scenario.y,
+                scenario.z,
+                emptySet(),
+                scenario.yaw,
+                scenario.pitch,
+                true
+            )
+            
+            if (!teleport) return false
+        }
         
         player.setGameMode(scenario.gamemode)
         
-        player.health = scenario.health
-        player.foodData.foodLevel = scenario.hunger
-        player.foodData.setSaturation(scenario.saturation)
-        
-        player.totalExperience = scenario.totalExperience
-        player.experienceLevel = scenario.experienceLevel
-        player.experienceProgress = scenario.experienceProgress
-        
-        val inventory = player.inventory
-        
-        for (i in inventory.nonEquipmentItems.indices) {
-            inventory.setItem(
-                i,
-                    scenario.inventory.getOrElse(i) {
-                        ItemStack.EMPTY
-                    }.copy()
-            )
-        }
-        
-        for ((index, slot) in armourSlots.withIndex()) {
-            player.setItemSlot(
-                slot,
-                scenario.armour[index].copy()
-            )
-        }
-        
-        player.setItemSlot(
-            EquipmentSlot.OFFHAND,
-            scenario.offhand.copy()
-        )
-
-        inventory.selectedSlot = scenario.selectedSlot
-        
-        inventory.setChanged()
-        player.inventoryMenu.broadcastChanges()
-        
-        val currentTags = player.entityTags().toSet()
-        
-        for (tag in currentTags) {
-            player.removeTag(tag)
-        }
-        
-        for (tag in scenario.tags) {
-            player.addTag(tag)
-        }
-        
-        val scoreboard = server.scoreboard
-        val scoreboardName = player.scoreboardName
-        
-        scoreboard.removePlayerFromTeam(scoreboardName)
-        
-        // Create team if it doesn't exist, and assign player  
-        val teamName = scenario.team
-        if (teamName != null) {
-            var team = scoreboard.getPlayerTeam(teamName)
+        if (part == "all" || part == "player") {
+            player.health = scenario.health
+            player.foodData.foodLevel = scenario.hunger
+            player.foodData.setSaturation(scenario.saturation)
             
-            if (team == null) {
-                team = scoreboard.addPlayerTeam(teamName)
+            player.totalExperience = scenario.totalExperience
+            player.experienceLevel = scenario.experienceLevel
+            player.experienceProgress = scenario.experienceProgress
+        }
+        
+        if (part == "all" || part == "inventory") {
+            val inventory = player.inventory
+            
+            for (i in inventory.nonEquipmentItems.indices) {
+                inventory.setItem(
+                    i,
+                        scenario.inventory.getOrElse(i) {
+                            ItemStack.EMPTY
+                        }.copy()
+                )
             }
             
-            scoreboard.addPlayerToTeam(scoreboardName, team)
+            for ((index, slot) in armourSlots.withIndex()) {
+                player.setItemSlot(
+                    slot,
+                    scenario.armour[index].copy()
+                )
+            }
+            
+            player.setItemSlot(
+                EquipmentSlot.OFFHAND,
+                scenario.offhand.copy()
+            )
+
+            inventory.selectedSlot = scenario.selectedSlot
+            
+            inventory.setChanged()
+            player.inventoryMenu.broadcastChanges()
         }
         
         val nbt = scenario.extraNbt
         
-        player.airSupply = nbt.getIntOr("Air", 300)
-        player.remainingFireTicks = nbt.getIntOr("Fire", 0)
-        player.ticksFrozen = nbt.getIntOr("FrozenTicks", 0)
-        player.fallDistance = nbt.getDoubleOr("FallDistance", 0.0)
-        player.isNoGravity = nbt.getBooleanOr("NoGravity", false)
-        player.isSprinting = nbt.getBooleanOr("Sprinting", false)
-        player.isShiftKeyDown = nbt.getBooleanOr("Sneaking", false)
-        
-        player.setDeltaMovement(
-            nbt.getDoubleOr("VelocityX", 0.0),
-            nbt.getDoubleOr("VelocityY", 0.0),
-            nbt.getDoubleOr("VelocityZ", 0.0),
-        )
-        
-        if (nbt.contains("WorldTime")) {
-            val clock = level.registryAccess()
-                .get(WorldClocks.OVERWORLD)
-                .orElse(null)
+        if (part == "all" || part == "player") {
+            val currentTags = player.entityTags().toSet()
+            
+            for (tag in currentTags) {
+                player.removeTag(tag)
+            }
+            
+            for (tag in scenario.tags) {
+                player.addTag(tag)
+            }
+            
+            val scoreboard = server.scoreboard
+            val scoreboardName = player.scoreboardName
+            
+            scoreboard.removePlayerFromTeam(scoreboardName)
+            
+            // Create team if it doesn't exist, and assign player  
+            val teamName = scenario.team
+            if (teamName != null) {
+                var team = scoreboard.getPlayerTeam(teamName)
                 
-            if (clock != null) {
-                level.clockManager().setTotalTicks(
-                    clock,
-                    nbt.getLongOr("WorldTime", 0L)
+                if (team == null) {
+                    team = scoreboard.addPlayerTeam(teamName)
+                }
+                
+                scoreboard.addPlayerToTeam(scoreboardName, team)
+            }
+            
+            player.airSupply = nbt.getIntOr("Air", 300)
+            player.remainingFireTicks = nbt.getIntOr("Fire", 0)
+            player.ticksFrozen = nbt.getIntOr("FrozenTicks", 0)
+            player.fallDistance = nbt.getDoubleOr("FallDistance", 0.0)
+            player.isNoGravity = nbt.getBooleanOr("NoGravity", false)
+            player.isSprinting = nbt.getBooleanOr("Sprinting", false)
+            player.isShiftKeyDown = nbt.getBooleanOr("Sneaking", false)
+            
+            player.setDeltaMovement(
+                nbt.getDoubleOr("VelocityX", 0.0),
+                nbt.getDoubleOr("VelocityY", 0.0),
+                nbt.getDoubleOr("VelocityZ", 0.0),
+            )
+        }
+        
+        if (part == "all" || part == "world") {
+            if (nbt.contains("WorldTime")) {
+                val clock = level.registryAccess()
+                    .get(WorldClocks.OVERWORLD)
+                    .orElse(null)
+                    
+                if (clock != null) {
+                    level.clockManager().setTotalTicks(
+                        clock,
+                        nbt.getLongOr("WorldTime", 0L)
+                    )
+                }
+            }
+            
+            if (nbt.contains("Raining")) {
+                val raining = nbt.getBooleanOr("Raining", false)
+                val thundering = nbt.getBooleanOr("Thundering", false)
+                
+                if (raining) {
+                    server.setWeatherParameters(0, 12000, true, thundering)
+                } else {
+                    server.setWeatherParameters(12000, 0, false, false)
+                }
+            }
+        }
+        
+        if (part == "all") {
+            if (resetFunction != null) {
+                server.functions.execute(
+                    resetFunction,
+                    player.createCommandSourceStack()
                 )
             }
-        }
-        
-        if (nbt.contains("Raining")) {
-            val raining = nbt.getBooleanOr("Raining", false)
-            val thundering = nbt.getBooleanOr("Thundering", false)
-            
-            if (raining) {
-                server.setWeatherParameters(0, 12000, true, thundering)
-            } else {
-                server.setWeatherParameters(12000, 0, false, false)
-            }
-        }
-        
-        if (resetFunction != null) {
-            server.functions.execute(
-                resetFunction,
-                player.createCommandSourceStack()
-            )
         }
         
         if (owner.uuid == player.uuid) {

@@ -7,6 +7,7 @@
     "message.testrun.pinged": "Arrr! TestRun be shipshape!",
     "message.testrun.saved": "Arrr, ye stowed %s.",
     "message.testrun.restored": "Adventure %s be restored!",
+    "message.testrun.restored_part": "Adventure %1$s be restored! But just yer %2%s.",
     "message.testrun.scenario_missing": "No treasture by the name o' %s be found!",
     "message.testrun.last_scenario_missing": "Ye haven't sailed on any adventure yet!",
     "message.testrun.deleted": "Thown adventure %s overboard!",

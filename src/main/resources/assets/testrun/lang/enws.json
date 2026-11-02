@@ -7,6 +7,7 @@
     "message.testrun.pinged": "Thine TestRun doth be working.",
     "message.testrun.saved": "The trial %s hath be preserved.",
     "message.testrun.restored": "Thine %s hath been restored.",
+    "message.testrun.restored_part": "Thy %2$s of thine $1$s hath been restored.",
     "message.testrun.scenario_missing": "Alas! No trial by the name of %s was found.",
     "message.testrun.last_scenario_missing": "No fomer trial has been recorded.",
     "message.testrun.deleted": "Farewall, trial %s.",

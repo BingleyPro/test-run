@@ -7,6 +7,7 @@
     "message.testrun.pinged": "TESTRUN IZ ALIVE!!!",
     "message.testrun.saved": "UR SCENARYO %s IZ SAVED!",
     "message.testrun.restored": "OMG %s IS BACK!!",
+    "message.testrun.restored_part": "OMG THE %2$s OF %1$s HAS RETURNED??",
     "message.testrun.scenario_missing": "OH NO! %s IZ GONE!",
     "message.testrun.last_scenario_missing": "NO SCENARYO? NOOOOOOOOO!",
     "message.testrun.deleted": "YOU KILLED %s!",

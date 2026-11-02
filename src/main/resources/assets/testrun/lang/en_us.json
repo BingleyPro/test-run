@@ -7,6 +7,7 @@
     "message.testrun.pinged": "TestRun is working.",
     "message.testrun.saved": "Scenario %s saved successfully.",
     "message.testrun.restored": "Scenario %s was restored.",
+    "message.testrun.restored_part": "Restored %2$s from scenario %1$s.",
     "message.testrun.scenario_missing": "Scenario %s was not found.",
     "message.testrun.last_scenario_missing": "No last scenario was found.",
     "message.testrun.deleted": "Scenario %s was deleted.",
