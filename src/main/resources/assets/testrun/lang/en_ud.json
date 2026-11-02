@@ -1,6 +1,9 @@
 {
     "key.category.testrun.controls": "unꓤʇsǝ⊥",
     "key.testrun.again": "oᴉɹɐuǝɔS ʇsɐ˥ ʇɹɐʇsǝꓤ",
+    "key.testrun.quicksave": "ǝʌɐS ʞɔᴉnΌ",
+    "key.testrun.quickload": "pɐo˥ ʞɔᴉnΌ",
+    "key.testrun.finishattempt": "ʇdɯǝʇʇ∀ ɥsᴉuᴉℲ",
     "message.testrun.pinged": "˙ƃuᴉʞɹoʍ sᴉ unꓤʇsǝ⊥",
     "message.testrun.saved": "˙ʎllnɟssǝɔɔns pǝʌɐs %s oᴉɹɐuǝɔS",
     "message.testrun.restored": "˙pǝɹoʇsǝɹ sɐʍ %s oᴉɹɐuǝɔS",

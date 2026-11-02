@@ -1,0 +1,18 @@
+{
+    "key.category.testrun.controls": "TESTRUN!!",
+    "key.testrun.again": "DO IT AGAIN LOL",
+    "key.testrun.quicksave": "SAVE!! QUICKLY!!",
+    "key.testrun.quickload": "LOAD!! QUICKLY!!",
+    "key.testrun.finishattempt": "U FINISHED CONGRATS!",
+    "message.testrun.pinged": "TESTRUN IZ ALIVE!!!",
+    "message.testrun.saved": "UR SCENARYO %s IZ SAVED!",
+    "message.testrun.restored": "OMG %s IS BACK!!",
+    "message.testrun.scenario_missing": "OH NO! %s IZ GONE!",
+    "message.testrun.last_scenario_missing": "NO SCENARYO? NOOOOOOOOO!",
+    "message.testrun.deleted": "YOU KILLED %s!",
+    "message.testrun.again": "WE DOIN DIS AGAIN!!",
+    "message.testrun.scenario_or_function_missing": "SOMTHING MISSING!!",
+    "message.testrun.set_reset_function": "RESET IS %2$s FOR %2$s!!",
+    "message.testrun.list_empty": "NO SCENARYOS HERE!!",
+    "message.testrun_list": "UR SCENARYOS: $s"
+}

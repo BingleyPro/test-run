@@ -1,6 +1,9 @@
 {
     "key.category.testrun.controls": "TestRun",
     "key.testrun.again": "Return Unto Thy Former Trial",
+    "key.testrun.quicksave": "Quickly, Doth Save",
+    "key.testrun.quickload": "Quickly, Doth Load",
+    "key.testrun.finishattempt": "Finish Attempt",
     "message.testrun.pinged": "Thine TestRun doth be working.",
     "message.testrun.saved": "The trial %s hath be preserved.",
     "message.testrun.restored": "Thine %s hath been restored.",
